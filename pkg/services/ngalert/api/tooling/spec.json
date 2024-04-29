@@ -4443,7 +4443,7 @@
       }
     },
     "EvalQueriesResponse": {
-      "$ref": "#/definitions/EvalQueriesResponse"
+      "type": "object"
     },
     "ExplorePanelsState": {
       "description": "This is an object constructed with the keys as the values of the enum VisType and the value being a bag of properties"
@@ -5913,8 +5913,8 @@
       }
     },
     "PagerdutyImage": {
-      "description": "PagerdutyImage is an image",
       "type": "object",
+      "title": "PagerdutyImage is an image.",
       "properties": {
         "alt": {
           "type": "string"
@@ -5928,8 +5928,8 @@
       }
     },
     "PagerdutyLink": {
-      "description": "PagerdutyLink is a link",
       "type": "object",
+      "title": "PagerdutyLink is a link.",
       "properties": {
         "href": {
           "type": "string"
@@ -7719,7 +7719,7 @@
       }
     },
     "Userinfo": {
-      "description": "The Userinfo type is an immutable encapsulation of username and\npassword details for a URL. An existing Userinfo value is guaranteed\nto have a username set (potentially empty, as allowed by RFC 2396),\nand optionally a password.",
+      "description": "The Userinfo type is an immutable encapsulation of username and\npassword details for a [URL]. An existing Userinfo value is guaranteed\nto have a username set (potentially empty, as allowed by RFC 2396),\nand optionally a password.",
       "type": "object"
     },
     "ValidationError": {
@@ -7895,36 +7895,19 @@
       }
     },
     "alertGroup": {
-      "description": "AlertGroup alert group",
       "type": "object",
       "required": [
         "alerts",
         "labels",
         "receiver"
-      ],
-      "properties": {
-        "alerts": {
-          "description": "alerts",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/gettableAlert"
-          }
-        },
-        "labels": {
-          "$ref": "#/definitions/labelSet"
-        },
-        "receiver": {
-          "$ref": "#/definitions/receiver"
-        }
-      },
-      "$ref": "#/definitions/alertGroup"
+      ]
     },
     "alertGroups": {
       "type": "array",
       "items": {
+        "type": "object",
         "$ref": "#/definitions/alertGroup"
-      },
-      "$ref": "#/definitions/alertGroups"
+      }
     },
     "alertStatus": {
       "description": "AlertStatus alert status",
@@ -8025,6 +8008,7 @@
       }
     },
     "gettableAlert": {
+      "description": "GettableAlert gettable alert",
       "type": "object",
       "required": [
         "labels",
@@ -8077,15 +8061,14 @@
           "type": "string",
           "format": "date-time"
         }
-      },
-      "$ref": "#/definitions/gettableAlert"
+      }
     },
     "gettableAlerts": {
       "type": "array",
       "items": {
+        "type": "object",
         "$ref": "#/definitions/gettableAlert"
-      },
-      "$ref": "#/definitions/gettableAlerts"
+      }
     },
     "gettableSilence": {
       "description": "GettableSilence gettable silence",
@@ -8134,48 +8117,22 @@
           "type": "string",
           "format": "date-time"
         }
-      },
-      "$ref": "#/definitions/gettableSilence"
+      }
     },
     "gettableSilences": {
       "description": "GettableSilences gettable silences",
       "type": "array",
       "items": {
+        "type": "object",
         "$ref": "#/definitions/gettableSilence"
-      },
-      "$ref": "#/definitions/gettableSilences"
+      }
     },
     "integration": {
-      "description": "Integration integration",
       "type": "object",
       "required": [
         "name",
         "sendResolved"
-      ],
-      "properties": {
-        "lastNotifyAttempt": {
-          "description": "A timestamp indicating the last attempt to deliver a notification regardless of the outcome.\nFormat: date-time",
-          "type": "string",
-          "format": "date-time"
-        },
-        "lastNotifyAttemptDuration": {
-          "description": "Duration of the last attempt to deliver a notification in humanized format (`1s` or `15ms`, etc).",
-          "type": "string"
-        },
-        "lastNotifyAttemptError": {
-          "description": "Error string for the last attempt to deliver a notification. Empty if the last attempt was successful.",
-          "type": "string"
-        },
-        "name": {
-          "description": "name",
-          "type": "string"
-        },
-        "sendResolved": {
-          "description": "send resolved",
-          "type": "boolean"
-        }
-      },
-      "$ref": "#/definitions/integration"
+      ]
     },
     "labelSet": {
       "description": "LabelSet label set",
@@ -8291,6 +8248,7 @@
       }
     },
     "postableSilence": {
+      "description": "PostableSilence postable silence",
       "type": "object",
       "required": [
         "comment",
@@ -8325,8 +8283,7 @@
           "type": "string",
           "format": "date-time"
         }
-      },
-      "$ref": "#/definitions/postableSilence"
+      }
     },
     "receiver": {
       "description": "Receiver receiver",
@@ -8352,8 +8309,7 @@
           "description": "name",
           "type": "string"
         }
-      },
-      "$ref": "#/definitions/receiver"
+      }
     },
     "silence": {
       "description": "Silence silence",
